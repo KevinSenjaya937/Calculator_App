@@ -21,8 +21,27 @@ class MainActivity : AppCompatActivity() {
         val divideBtn = findViewById<Button>(R.id.divideBtn)
         val clearBtn = findViewById<Button>(R.id.clearBtn)
 
+        val errorNotification = findViewById<TextView>(R.id.errorNotification)
+
+        fun errorChecker() {
+            var errorText = ""
+            val result = "Result"
+
+            if (firstNumber.text.toString().isEmpty() && secondNumber.text.toString().isEmpty()) {
+                errorText = "Please enter first and second number."
+                resultNumber.text = result
+            } else if (firstNumber.text.toString().isEmpty()) {
+                errorText = "Please enter first number."
+                resultNumber.text = result
+            } else if (secondNumber.text.toString().isEmpty()) {
+                errorText = "Please enter second number."
+                resultNumber.text = result
+            }
+            errorNotification.text = errorText
+        }
 
         addBtn.setOnClickListener {
+            errorChecker()
             if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
                 val first = firstNumber.text.toString().toDouble()
                 val second = secondNumber.text.toString().toDouble()
@@ -32,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         subtractBtn.setOnClickListener {
+            errorChecker()
             if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
                 val first = firstNumber.text.toString().toDouble()
                 val second = secondNumber.text.toString().toDouble()
@@ -41,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         multiplyBtn.setOnClickListener {
+            errorChecker()
             if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
                 val first = firstNumber.text.toString().toDouble()
                 val second = secondNumber.text.toString().toDouble()
@@ -50,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         divideBtn.setOnClickListener {
+            errorChecker()
             if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
                 val first = firstNumber.text.toString().toDouble()
                 val second = secondNumber.text.toString().toDouble()
@@ -61,7 +83,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     resultNumber.text = result
                 }
-
             }
         }
 
@@ -70,9 +91,7 @@ class MainActivity : AppCompatActivity() {
             resultNumber.text = result
             firstNumber.setText("")
             secondNumber.setText("")
+            errorNotification.text = ""
         }
-
-
-
     }
 }
