@@ -1,125 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingTop="20dp"
+    android:paddingRight="10dp"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/firstNumberBox"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="First Number"
+        android:hint="@string/first_number"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/resultBox"
-        app:layout_constraintEnd_toStartOf="@+id/secondNumberBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/secondNumberBox"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/secondNumberBox"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Second Number"
+        android:hint="@string/second_number"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/resultBox"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/firstNumberBox" />
+        app:layout_constraintStart_toEndOf="@id/firstNumberBox"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/multiplyBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/divideBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
-
-    <Button
-        android:id="@+id/subtractBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/divideBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/addBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
-
-    <Button
-        android:id="@+id/divideBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/multiplyBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/subtractBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
 
     <Button
         android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="+"
+        android:text="@string/addition"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/subtractBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        app:layout_constraintEnd_toStartOf="@id/subtractBtn"
+        app:layout_constraintTop_toBottomOf="@id/firstNumberBox"/>
+
+    <Button
+        android:id="@+id/subtractBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/subtraction"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/addBtn"
+        app:layout_constraintEnd_toStartOf="@id/divideBtn"
+        app:layout_constraintTop_toBottomOf="@id/firstNumberBox"/>
+
+
+    <Button
+        android:id="@+id/divideBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/division"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/subtractBtn"
+        app:layout_constraintEnd_toStartOf="@id/multiplyBtn"
+        app:layout_constraintTop_toBottomOf="@id/secondNumberBox"/>
+
+    <Button
+        android:id="@+id/multiplyBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/multiplication"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/divideBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondNumberBox"/>
 
     <TextView
         android:id="@+id/resultBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Result"
+        android:text="@string/result"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/errorNotification"/>
 
     <Button
         android:id="@+id/clearBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="CLEAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/clear"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultBox"/>
 
     <TextView
         android:id="@+id/errorNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintTop_toBottomOf="@id/subtractBtn" />
 
 </android.support.constraint.ConstraintLayout>
