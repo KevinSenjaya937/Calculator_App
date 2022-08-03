@@ -1,6 +1,5 @@
 package au.edu.curtin.bankingapp
 
-import android.os.Binder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,34 +11,68 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var firstNumber = findViewById<EditText>(R.id.firstNumberBox)
-        var secondNumber = findViewById<EditText>(R.id.secondNumberBox)
-        var resultNumber = findViewById<EditText>(R.id.resultBox)
+        val firstNumber = findViewById<EditText>(R.id.firstNumberBox)
+        val secondNumber = findViewById<EditText>(R.id.secondNumberBox)
+        val resultNumber = findViewById<TextView>(R.id.resultBox)
 
         val addBtn = findViewById<Button>(R.id.addBtn)
         val subtractBtn = findViewById<Button>(R.id.subtractBtn)
         val multiplyBtn = findViewById<Button>(R.id.multiplyBtn)
         val divideBtn = findViewById<Button>(R.id.divideBtn)
+        val clearBtn = findViewById<Button>(R.id.clearBtn)
 
 
         addBtn.setOnClickListener {
-            resultNumber.setText((firstNumber.text.toString().toDouble() + secondNumber.text.toString().toDouble()).toString())
+            if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
+                val first = firstNumber.text.toString().toDouble()
+                val second = secondNumber.text.toString().toDouble()
+                val result = "%.2f".format(first + second)
+                resultNumber.text = result
+            }
         }
 
         subtractBtn.setOnClickListener {
-            resultNumber.setText((firstNumber.text.toString().toDouble() - secondNumber.text.toString().toDouble()).toString())
+            if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
+                val first = firstNumber.text.toString().toDouble()
+                val second = secondNumber.text.toString().toDouble()
+                val result = "%.2f".format(first - second)
+                resultNumber.text = result
+            }
         }
 
         multiplyBtn.setOnClickListener {
-            resultNumber.setText((firstNumber.text.toString().toDouble() * secondNumber.text.toString().toDouble()).toString())
+            if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
+                val first = firstNumber.text.toString().toDouble()
+                val second = secondNumber.text.toString().toDouble()
+                val result = "%.2f".format(first * second)
+                resultNumber.text = result
+            }
         }
 
         divideBtn.setOnClickListener {
-            resultNumber.setText((firstNumber.text.toString().toDouble() / secondNumber.text.toString().toDouble()).toString())
+            if (firstNumber.text.toString() != "" && secondNumber.text.toString() != "") {
+                val first = firstNumber.text.toString().toDouble()
+                val second = secondNumber.text.toString().toDouble()
+                val result = "%.2f".format(first / second)
+
+                if (result == "NaN") {
+                    val undefined = "Undefined"
+                    resultNumber.text = undefined
+                } else {
+                    resultNumber.text = result
+                }
+
+            }
         }
 
-        // Rounding
-        // Check Division by 0 stuff
+        clearBtn.setOnClickListener {
+            val result = "Result"
+            resultNumber.text = result
+            firstNumber.setText("")
+            secondNumber.setText("")
+        }
+
+
 
     }
 }

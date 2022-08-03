@@ -7,39 +7,40 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/secondNumberBox"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="104dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text=""
-        android:hint="Second Number"
-        app:layout_constraintBottom_toTopOf="@+id/resultBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/firstNumberBox" />
-
-    <EditText
         android:id="@+id/firstNumberBox"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="144dp"
         android:ems="10"
+        android:hint="First Number"
         android:inputType="numberDecimal"
         android:text=""
-        android:hint="First Number"
         app:layout_constraintBottom_toTopOf="@+id/resultBox"
         app:layout_constraintEnd_toStartOf="@+id/secondNumberBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:id="@+id/secondNumberBox"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="144dp"
+        android:ems="10"
+        android:hint="Second Number"
+        android:inputType="numberDecimal"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/resultBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/firstNumberBox" />
+
     <Button
         android:id="@+id/multiplyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="*"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/divideBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -64,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="/"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/multiplyBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -76,6 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/subtractBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -84,19 +88,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.182" />
 
-    <EditText
+    <TextView
         android:id="@+id/resultBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Result"
-        android:textAlignment="center"
-        android:text=""
+        android:text="Result"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328" />
+
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLEAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.441" />
 
 </android.support.constraint.ConstraintLayout>
